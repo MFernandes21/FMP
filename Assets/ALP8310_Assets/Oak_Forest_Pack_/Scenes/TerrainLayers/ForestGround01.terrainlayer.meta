@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e51edd8fb8a44f24db33fe0f003ff0bb
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 8574412962073106934
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 153314
+  packageName: Oak Forest Environment
+  packageVersion: 1.2
+  assetPath: Assets/ALP8310_Assets/Oak_Forest_Pack_/Scenes/TerrainLayers/ForestGround01.terrainlayer
+  uploadId: 412959

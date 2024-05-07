@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 6bf91340bff52ab44999dd9b5f223db3
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 8574412962073106934
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 153314
+  packageName: Oak Forest Environment
+  packageVersion: 1.2
+  assetPath: Assets/ALP8310_Assets/Oak_Forest_Pack_/Scenes/TerrainLayers/GreenGrass_Layer.terrainlayer
+  uploadId: 412959
