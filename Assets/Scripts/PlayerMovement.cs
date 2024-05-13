@@ -31,6 +31,9 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+
+        CheckPlayerTouchingFire();
+
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         Vector3 right = transform.TransformDirection(Vector3.right);
 
@@ -78,4 +81,27 @@ public class PlayerMovement : MonoBehaviour
             transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
         }
     }
+
+
+
+
+    void CheckPlayerTouchingFire()
+    {
+        LayerMask layer = LayerMask.NameToLayer("Fire");
+
+        float sphereRadius = 2;
+        if (Physics.CheckSphere(transform.position, sphereRadius, 1<<layer ))
+        {
+            print("collided with fire");
+
+            if( Input.GetKeyDown("e"))
+            {
+                GetComponent<PlayerInventory>().DecreasePickup();
+                //GetComponent<Timer>.remainingTime;
+            }
+
+        }
+        
+    }
+
 }
