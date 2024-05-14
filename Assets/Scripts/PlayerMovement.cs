@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpPower = 7f;
     public float gravity = 10f;
     public float lookSpeed = 2f;
-    public float lookXLimit = 45f;
+    public float lookXLimit = 50f;
     public float defaultHeight = 2f;
     public float crouchHeight = 1f;
     public float crouchSpeed = 3f;
@@ -76,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
         if (canMove)
         {
             rotationX += -Input.GetAxis("Mouse Y") * lookSpeed;
-            //rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
+            rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
             playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
             transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
         }
@@ -97,7 +97,10 @@ public class PlayerMovement : MonoBehaviour
             if( Input.GetKeyDown("e"))
             {
                 GetComponent<PlayerInventory>().DecreasePickup();
-                //GetComponent<Timer>.remainingTime;
+                //GetComponent<Timer>().changeTime();
+                //Invoke("changeTime", 60);
+                Timer.remainingTime = 60;
+
             }
 
         }
