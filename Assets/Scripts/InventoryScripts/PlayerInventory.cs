@@ -5,24 +5,34 @@ using UnityEngine.Events;
 
 public class PlayerInventory : MonoBehaviour
 {
-    public int NumberOfPickups { get; private set; }
+    public int numberOfPickups;
+
+    private void Start()
+    {
+        numberOfPickups = 0;
+    }
 
     public UnityEvent<PlayerInventory> OnPickUpCollected;
 
     public void PickUpCollected()
     {
-        NumberOfPickups++;
+        numberOfPickups++;
         OnPickUpCollected.Invoke(this);
     }
 
     public void DecreasePickup()
     {
-        if(NumberOfPickups > 0)
+        if(numberOfPickups > 0)
         {
-            NumberOfPickups--;
+            numberOfPickups--;
             OnPickUpCollected.Invoke(this);
         }
 
+    }
+
+    public int GetNumberOfPickups()
+    {
+        return numberOfPickups;
     }
 
 

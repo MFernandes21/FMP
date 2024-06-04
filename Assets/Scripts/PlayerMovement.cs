@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
@@ -21,6 +22,11 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController characterController;
 
     private bool canMove = true;
+
+    public GameObject timerCanvasObject;
+
+
+    
 
     void Start()
     {
@@ -88,19 +94,25 @@ public class PlayerMovement : MonoBehaviour
     void CheckPlayerTouchingFire()
     {
         LayerMask layer = LayerMask.NameToLayer("Fire");
+     
+        int numberOfPickups = GetComponent<PlayerInventory>().GetNumberOfPickups();
 
         float sphereRadius = 2;
         if (Physics.CheckSphere(transform.position, sphereRadius, 1<<layer ))
         {
             print("collided with fire");
 
-            if( Input.GetKeyDown("e"))
-            {
-                GetComponent<PlayerInventory>().DecreasePickup();
-                //GetComponent<Timer>().changeTime();
-                //Invoke("changeTime", 60);
-                Timer.remainingTime = 60;
 
+
+            if(Input.GetKeyDown("e") && numberOfPickups > 0 )
+            {
+
+                AudioManager.instance.PlaySFX("Fire");
+
+                GetComponent<PlayerInventory>().DecreasePickup();
+
+                //Timer.remainingTime = 60;
+                timerCanvasObject.GetComponent<Timer>().SetTimer();
             }
 
         }

@@ -15,7 +15,7 @@ public class InventoryUI : MonoBehaviour
 
     public void UpdatePickUpText(PlayerInventory playerInventory)
     {
-        pickUpText.text = playerInventory.NumberOfPickups.ToString();
+        pickUpText.text = playerInventory.numberOfPickups.ToString();
     }
 }
 

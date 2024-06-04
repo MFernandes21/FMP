@@ -59,6 +59,38 @@ public class AudioManager : MonoBehaviour
 
     }
 
+    public void StopSFX(string name)
+    {
+        Sound s = Array.Find(sfxSounds, (x) => x.name == name);
+
+        if (s == null)
+        {
+            Debug.Log("Sound Not Found");
+        }
+        else
+        {
+            sfxSource.Stop();
+        }
+
+    }
+
+    public void StopMusic(string name)
+    {
+        Sound s = Array.Find(musicSounds, x => x.name == name);
+
+        if (s == null)
+        {
+            Debug.Log("Sound Not Found");
+        }
+
+        else
+        {
+            musicSource.clip = s.clip;
+            musicSource.Stop();
+        }
+
+    }
+
     public void ToggleMusic()
     {
         musicSource.mute = !musicSource.mute;
